@@ -1,4 +1,4 @@
-# js_class_april_2020
+# js_class_april_2021
 Example scripts from JS class April 2021
 
 Each folder represents one session.
