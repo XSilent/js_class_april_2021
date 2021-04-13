@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercise: Tax calculation</title>
+	</head>
+<body>
+    <script type="text/javascript">
+    /*
+        Exercise:
+        Write a little script, which asks the user for a net value 
+        and outputs the calculated gross value for 19% tax. The script 
+        should output all three values: 
+            - net value
+            - calculated gross value 
+            - calculated tax value
+    */
+
+	var net = prompt("Please enter net value");
+
+    if (net != '') {
+        // simple trick, to turn variable net from
+        // datatype string to int:
+        net = net * 1;      
+        // alternative: net = parseInt(net);
+        var tax = net * 0.19;
+        
+        var gross = net + tax;
+
+        document.write("<pre>");
+        document.write("net value \t: " + net + "<br>");
+        document.write("+ 19% tax \t: " + tax + "<br>");
+        document.write("------------------------ <br>");
+        document.write("gross value \t: " + gross + "<br>");
+        document.write("======================== <br>");
+        document.write("</pre>");
+    } else {
+        document.write("Empty input: Does not compute!");
+    }
+
+    </script>
+</body>
+</html>

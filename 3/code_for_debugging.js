@@ -1,0 +1,14 @@
+var number = 1;
+console.log(number);
+number = number + 1;
+console.log(number);
+alert("current value is " + number);
+console.log(number);
+number = number * 3;
+console.log(number);
+number = number - 2;
+console.log(number);
+number = number / 2;
+console.log(number);
+alert("current value is " + number);
+console.log(number);

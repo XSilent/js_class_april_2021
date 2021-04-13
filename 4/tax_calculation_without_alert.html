@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercise: Tax calculation</title>
+	</head>
+<body>
+    <p>Net value: <input type="text" id="netvalue" /></p>
+
+    <p><button onclick="calcTax()">Calc tax!</button></p>
+
+    <script type="text/javascript">
+    // This example is based on the excercise: tax_calculation.html
+	
+    function calcTax() {
+        var net = document.getElementById("netvalue").value;
+
+        if (net != '') {
+            // simple trick, to turn variable net from
+            // datatype string to int:
+            net = net * 1;      
+            // alternative: net = parseInt(net);
+            var tax = net * 0.19;
+            
+            var gross = net + tax;
+
+            document.write("<pre>");
+            document.write("net value \t: " + net + "<br>");
+            document.write("+ 19% tax \t: " + tax + "<br>");
+            document.write("------------------------ <br>");
+            document.write("gross value \t: " + gross + "<br>");
+            document.write("======================== <br>");
+            document.write("</pre>");
+        } else {
+            document.write("Empty input: Does not compute!");
+        }
+    }
+    </script>
+</body>
+</html>
