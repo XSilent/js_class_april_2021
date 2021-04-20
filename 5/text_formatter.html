@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Text formatter</title>
+	</head>
+<body>
+    <h4>Google Chat Text formatter</h4>
+    <p>Input<br><textarea id="blanktext" rows="6" cols="60"></textarea></p>
+
+    <input type="checkbox" id="optionItalic" /> Italic<br>
+    <input type="checkbox" id="optionBold" /> Bold<br>
+    <input type="checkbox" id="optionStrike" /> Strike<br>
+    <input type="checkbox" id="optionQuoteOneline" /> Quote one line<br>
+    <input type="checkbox" id="optionQuoteMultiline" /> Quote multi line<br>
+
+    <p><button onclick="getOptions()">Copy to clipboard!</button></p>
+    
+    <p>Output<br>
+        <textarea id="output" rows="6" cols="60"></textarea>
+    </p>
+
+    <script type="text/javascript">
+
+    function getOptions() {
+        var italic = document.getElementById("optionItalic").checked;
+        var bold = document.getElementById("optionBold").checked;
+        var strike = document.getElementById("optionStrike").checked;
+        var quoteOne = document.getElementById("optionQuoteOneline").checked;
+        var quoteMulti = document.getElementById("optionQuoteMultiline").checked;
+        var blanktext = document.getElementById("blanktext").value;
+
+        formatText(italic, bold, strike, quoteOne, quoteMulti, blanktext);
+    }
+
+    function formatText(italic, bold, strike, quoteOne, quoteMulti, blanktext) {
+        var formattedText = blanktext;
+
+        if (italic) {
+            formattedText = "_" + formattedText + "_";
+        }
+
+        if (bold) {
+            formattedText = "*" + formattedText + "*";
+        }
+
+        if (strike) {
+            formattedText = "~" + formattedText + "~";
+        }
+
+        if (quoteOne) {
+            formattedText = "`" + formattedText + "`";
+        }
+
+        if (quoteMulti) {
+            formattedText = "```" + formattedText + "```";
+        }
+
+        document.getElementById("output").value = formattedText;
+
+        // copy formatted text to clipboard
+        // (tested only on Mac OS on Chrome and Firefox
+        navigator.clipboard.writeText(formattedText);
+    }
+    </script>
+</body>
+</html>
