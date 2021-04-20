@@ -11,12 +11,11 @@
 	<img src="" id="dice" />
 
 	<script type="text/javascript">
-
 	// this function calls another function to retrieve
-	// a random. With this random number its composing
+	// a random number. With this random number its composing
 	// a new file name. With the help of DOM manipulation
 	// the function is changing the src attribute of the
-	// exiting img tag with the id "dice"
+	// existing img tag with the id "dice"
 	function throwDice() {                        
 		var nr = getRandomNumber();
 		document.getElementById("dice").src = nr + ".png";
@@ -29,21 +28,6 @@
 
 		return Math.round((Math.random() * (max - min)) + min); 
 	}
-
-
-	function main() {
-
-		var options = getOptions();
-
-		var inputUser = getInput();
-
-		var resultTransform = transform(options, inputUser);
-
-		var resultFormat = formatText(resultTransform);
-
-		displayText(resultFormat);
-	}
-
 	</script>
 </body>
 </html>
