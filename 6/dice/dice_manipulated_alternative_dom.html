@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dice</title>
+	</head>
+<body>
+	<p>
+		<button onclick="throwDice();">Throw dice!</button>
+	</p>
+
+    <img src="" id="dice" />
+    
+    <input type="hidden" id="store" value="0" />
+
+    <script type="text/javascript">
+    
+	// this function calls another function to retrieve
+	// a random. With this random number its composing
+	// a new file name. With the help of DOM manipulation
+	// the function is changing the src attribute of the
+	// exiting img tag with the id "dice"
+	//
+	// It makes sure, that a new dice throw is never showing
+	// the same result as the dice throw before.
+	//
+	// Here: By saving the old value to an hidden input field and
+	// reading the value from there again.
+	function throwDice() {                                
+        var oldNr = parseInt(document.getElementById("store").value);
+
+        do {
+            var nr = getRandomNumber();
+        } while(nr == oldNr)
+        
+        document.getElementById("store").value = nr; // save current value, to use it for comparing next tim        
+		document.getElementById("dice").src = nr + ".png";
+	}
+
+	// this function returns a random number between 1 and 6
+	function getRandomNumber() {
+		var min = 1; 
+		var max = 6; 
+
+		return Math.round((Math.random() * (max - min)) + min); 
+	}
+
+
+	function main() {
+
+		var options = getOptions();
+
+		var inputUser = getInput();
+
+		var resultTransform = transform(options, inputUser);
+
+		var resultFormat = formatText(resultTransform);
+
+		displayText(resultFormat);
+	}
+
+	</script>
+</body>
+</html>

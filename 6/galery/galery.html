@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple image galery</title>
+	</head>
+<body>
+    <p><button onclick="showPrevious();">Previous</button> <button onclick="showNext();">next</button></p>
+
+    <img src="cat.jpeg" id="galery" width="300"/>
+
+
+    <script type="text/javascript">
+
+var cars = ["Saab", "Volvo", "BMW"];
+
+cars.push("Daimler");
+
+var removed = cars.pop(); 
+
+for(var i=0;i<cars.length;i++) {
+    console.log(cars[i]);
+}
+
+console.log("remo", removed)
+
+
+        var pics = ["cat.jpeg", "dog.jpeg", "parrot.jpg", "turtle.png", "catbird.jpg"];
+        var current = 0;
+
+        function showNext() {
+            if (current > pics.length - 2) {
+                return;
+            }
+
+            current++
+            
+            document.getElementById("galery").src = pics[current];
+        }
+
+        function showPrevious() {
+            current--
+            if (current < 0) {
+                current = 0;
+            }
+            
+            document.getElementById("galery").src = pics[current];
+        }
+        
+    </script>
+</body>
+</html>

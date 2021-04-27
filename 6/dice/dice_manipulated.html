@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dice</title>
+	</head>
+<body>
+	<p>
+		<button onclick="throwDice();">Throw dice!</button>
+	</p>
+
+	<img src="" id="dice" />
+
+    <script type="text/javascript">
+    
+    // global Variable to save 
+    // number from last dice throw
+    var oldNr = 0;
+
+	// this function calls another function to retrieve
+	// a random. With this random number its composing
+	// a new file name. With the help of DOM manipulation
+	// the function is changing the src attribute of the
+	// exiting img tag with the id "dice"
+	//
+	// It makes sure, that a new dice throw is never showing
+	// the same result as the dice throw before.
+	//
+	// Here: By saving the old value to a global Variable
+	// to use this one later for comparison.
+	function throwDice() {                                
+        do {
+            var nr = getRandomNumber();
+        } while(nr == oldNr)
+        
+        oldNr = nr; // save current value, to use it for comparing next time
+
+		document.getElementById("dice").src = nr + ".png";
+	}
+
+	// this function returns a random number between 1 and 6
+	function getRandomNumber() {
+		var min = 1; 
+		var max = 6; 
+
+		return Math.round((Math.random() * (max - min)) + min); 
+	}
+	</script>
+</body>
+</html>

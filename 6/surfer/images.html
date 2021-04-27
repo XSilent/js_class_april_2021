@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Images</title>
+	</head>
+<body>
+    <p><button onclick="showAnimal();">Show me some great surfer!</button></p>
+
+    <img src="sea.jpeg" id="surfer" />
+
+
+    <script type="text/javascript">
+    /*
+        Display different pictures from animals, 
+        based on random number        
+    */
+
+    var lastNr = 0;
+    var randomNr = 0;
+
+    function showAnimal() {                
+        while (randomNr == lastNr) {
+            randomNr = getRandomNumber(1, 6);
+        }
+        lastNr = randomNr;
+
+        var imageName = getImageNameByNr(randomNr);
+
+        document.getElementById("surfer").src = imageName;
+    }
+        
+    function getImageNameByNr(nr) {
+        var imageName = "";
+        switch (nr) {
+            case 1:
+                imageName = "bird"
+                break;
+
+            case 2: 
+                imageName = "penguin"
+                break;
+
+            case 3:
+                imageName = "cats"
+                break;
+
+            case 4:
+                imageName = "dog"
+                break;   
+
+            case 5:
+                imageName = "cat"
+                break;   
+
+            case 6:
+                imageName = "mouse"
+                break;   
+        }
+
+        return imageName + ".jpeg";
+    }
+
+    function getRandomNumber(from, to) {
+        var min = from; 
+        var max = to; 
+
+        return Math.round((Math.random() * (max - min)) + min); 
+    }
+
+    </script>
+</body>
+</html>
