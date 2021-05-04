@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Grade Calculator Simple</title>
+	</head>
+<body>
+    <h3>Grades Calculator Simple Edition</h3>
+	<p>
+		<button onclick="calcGrades(0, 0);">Calculate grades</button>
+	</p>
+
+	<p>
+        Average for grades: <span id="grades-avg"></span><br>        
+    </p>
+
+    <script type="text/javascript">
+    function calcGrades(count, sum) {                
+        var userInput = parseInt(prompt("Please enter grade, stop input with 0"));            
+
+        if (userInput != 0) {
+            sum = sum + userInput;
+            count++;
+
+            calcGrades(count, sum);
+        } else {
+            var avg = sum / count;
+            document.getElementById("grades-avg").innerText = avg;
+        }
+    }
+	</script>
+</body>
+</html>

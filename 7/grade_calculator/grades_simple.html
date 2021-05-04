@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Grade Calculator Simple</title>
+	</head>
+<body>
+    <h3>Grades Calculator Simple Edition</h3>
+	<p>
+		<button onclick="start();">Calculate grades</button>
+	</p>
+
+	<p>
+        Average for grades: <span id="grades-avg"></span><br>        
+    </p>
+
+    <script type="text/javascript">
+    function start() {
+
+        // deklare empty array
+        var grades = [];
+
+        // do-while loop to gather grades from 
+        // user, until user stops input by entering
+        // a 0 as value.
+        do {
+            var userInput = parseInt(prompt("Please enter grade (stop entry with 0)"));
+
+            if (userInput != 0) {
+                grades.push(userInput);
+            }
+        } while (userInput != 0)
+
+        // sum up all values, loop over
+        // the array containing the grades
+        var sum = 0;
+        for(var i=0;i<grades.length;i++) {
+            console.log(grades[i]);
+            console.log(sum);
+            sum = sum + grades[i];
+        }
+
+        // calculate and output avarage grade
+        document.getElementById("grades-avg").innerText = (sum / grades.length);
+    }
+	</script>
+</body>
+</html>

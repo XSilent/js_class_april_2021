@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Grade Calculator</title>
+	</head>
+<body>
+    <h3>Grades Calculator</h3>
+	<p>
+		<button onclick="start();">Calculate grades</button>
+	</p>
+
+	<p>
+        Average for grades: <span id="grades-avg"></span><br>
+        Grades: <span id="grades"></span>
+    </p>
+
+    <script type="text/javascript">
+
+    // Start grades calculator
+    function start() {
+        var grades = getGrades();
+
+        var avg = calculateAvg(grades);
+
+        outputResult(grades, avg);
+    }
+
+    // Get input from user: all grades,
+    // until input is stopped by entering 0
+    function getGrades() {
+        var userInput;
+        var grades = [];
+        
+        do {
+            userInput = prompt("Please enter a grade (stop with enter 0 as value)");
+            
+            // convert input to integer value
+            // if input is not a valid integer,
+            // it will be converted to 0
+            // 
+            // parseInt() converts value to integer. 
+            // If thats not possible, it will return NaN 
+            // (for "Not a Number")
+            userInput = parseInt(userInput) || 0;  // if parseInt returns NaN, we are converting it to 0 with this expression
+
+            if (userInput != 0) {
+                grades.push(userInput);
+            }
+        } while(userInput != 0)
+
+        return grades;
+    }
+
+    // Calculate average value
+    function calculateAvg(grades) {
+        var sum = 0;
+        var avg = 0;
+
+        for(var i=0;i<grades.length;i++) {
+            sum = sum + grades[i];
+        }
+
+        avg = sum / grades.length;
+
+        return avg;
+    }
+
+    // Render result in browser
+    function outputResult(grades, avg) {
+
+        var grades = grades.join(",");
+
+        document.getElementById("grades-avg").innerText = avg;
+        document.getElementById("grades").innerText = grades;
+    }
+	</script>
+</body>
+</html>
