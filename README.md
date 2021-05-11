@@ -12,3 +12,4 @@ Each folder represents one session.
 | 5      | 20th April   |  
 | 6      | 27th April   |  
 | 7      | 04th May     |  
+| 8      | 11th May     |  
